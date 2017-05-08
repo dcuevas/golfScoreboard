@@ -10,6 +10,10 @@ import { CompetitionsComponent } from './competitions/competitions.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { RouterModule } from '@angular/router';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from './environments/environment';
+import { AuthComponent } from './auth/auth.component';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 
 @NgModule({
@@ -18,14 +22,17 @@ import { RouterModule } from '@angular/router';
     CompetitionComponent,
     CompetitionsComponent,
     ScoreboardComponent,
-    NavigationComponent
+    NavigationComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule,
-    Routing
+    Routing,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(environment.firebase)
   ],
 
   bootstrap: [AppComponent]
