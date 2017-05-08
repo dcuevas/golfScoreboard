@@ -9,6 +9,7 @@ import { CompetitionComponent } from './competition/competition.component';
 import { CompetitionsComponent } from './competitions/competitions.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    RouterModule,
     Routing
   ],
 
