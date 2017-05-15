@@ -1,7 +1,40 @@
-<p>
-  competition works!
-  <br>
-  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
-  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,c
+<ngb-accordion activeIds="competition-info,matches-info" #acc="ngbAccordion">
+  <ngb-panel id="competition-info" title="Competition Info">
+    <ng-template ngbPanelContent>
+      <form #formRef="ngForm">
+        <div class="form-group" [class.has-danger]="competitionNameRef.touched && competitionNameRef.errors?.required">
+          <label for="competition-name">Name</label>
+          <input type="text" required class="form-control form-control-danger" placeholder="Competition Name"
+                 [class.form-control-danger]="competitionNameRef.touched && competitionNameRef.errors?.required" id="competition-name" [(ngModel)]="competitionName" name="competitionName" #competitionNameRef="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="team-1-name">Team 1</label>
+          <input type="text" required class="form-control" placeholder="Team 1 Name" id="team-1-name" [(ngModel)]="team1Name" name="team1Name" #team1NameRef="ngModel">
+        </div>
+        <div class="form-group">
+          <label for="team-2-name">Team 2</label>
+          <input type="text" required class="form-control" placeholder="Team 2 Name" id="team-2-name" [(ngModel)]="team2Name" name="team2Name" #team2NameRef="ngModel">
+        </div>
 
-</p>
+        <div class="form-group">
+          <label for="number-of-matches">Matches</label>
+          <select class="form-control" id="number-of-matches" [(ngModel)]="numberOfMatches" name="numberOfMatches">
+            <option value="0">--</option>
+            <option *ngFor="let number of maxNumberOfMatches | range" [ngValue]="number">{{number}}</option>
+          </select>
+        </div>
+      </form>
+    </ng-template>
+
+  </ngb-panel>
+
+  <ngb-panel title="Matches Info" id="matches-info" >
+    <ng-template ngbPanelContent>
+      <app-matches [(numberOfMatches)]="numberOfMatches" [competitionInfo]="{ name: competitionName, team1: team1Name, team2: team2Name}"></app-matches>
+    </ng-template>
+  </ngb-panel>
+
+</ngb-accordion>
+
+
+

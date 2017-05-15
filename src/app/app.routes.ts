@@ -8,7 +8,6 @@ const routes = [
   { path: '', component: AuthComponent },
   { path: 'competitions', component: CompetitionsComponent },
   { path: 'competition', component: CompetitionComponent },
-  { path: 'scoreboard/:id', component: ScoreboardComponent },
+  { path: 'scoreboard/:name', component: ScoreboardComponent },
 ];
-
 export const Routing = RouterModule.forRoot(routes);

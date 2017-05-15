@@ -2,9 +2,13 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="#">
-    <img src="http://i.cdn.rydercup.com/sites/all/themes/custom/rydercup/images/RC_logo@2x.png" height="33" width="32"  class="d-inline-block align-top" alt="">
-  </a>
+
+  <div>
+    <a class="navbar-brand" href="#">
+      <img src="http://i.cdn.rydercup.com/sites/all/themes/custom/rydercup/images/RC_logo@2x.png" height="33" width="32"  class="d-inline-block align-top" alt="">
+    </a>
+    <span>{{(user$ | async)?.displayName}}</span>
+  </div>
 
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav mr-auto">

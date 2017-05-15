@@ -2,10 +2,13 @@
   <h2 class="text-center">Competitions</h2>
 
   <ul class="list-group mt-3">
-    <li class="list-group-item">Conejada Cup</li>
-    <li class="list-group-item">Topazo Monthly</li>
-    <li class="list-group-item">Ryder Cup</li>
+    <li class="list-group-item list-group-item-action d-block" *ngFor="let competition of competitions$ | async" (click)="openCompetitionScoreboard(competition.name)">
+        {{competition.name}}
+        <button type="button" class="close float-right" aria-label="Close" (click)="deleteCompetition()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </li>
   </ul>
 
-  <button type="button" class="btn btn-secondary float-right mt-3">Create Competition</button>
+  <button type="button" class="btn btn-secondary float-right mt-3" (click)="createCompetition()">Create Competition</button>
 </div>
