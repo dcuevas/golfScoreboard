@@ -1,0 +1,172 @@
+$red: #d20004;
+$blue: #0132a7;
+$dark-blue: #2e384e;
+$light-gray: #b8b8b8;
+
+@mixin winner-arrow() {
+  content: "";
+  position: absolute;
+  top: 0;
+  padding: 0 5px;
+  border: solid;
+  border-color: white transparent;
+  z-index: 10;
+}
+
+* {
+  font-family: 'Stratum', sans-serif;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+
+  .container {
+    margin: 0;
+    padding: 0;
+  }
+
+  .scoring {
+    color: white;
+    font-size: 2.3em;
+    height: 120px;
+    width: 100%;
+    background: url('../../assets/scoring_bg.jpg');
+    background-position: center 42%;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    padding-top: 34px;
+  }
+
+  .result {
+    margin: 0;
+    color: white;
+    font-size: 1rem;
+    height: 100px;
+    margin-bottom: 20px;
+
+    .team1 {
+      border-left: 0.5em solid $red;
+      padding: 2em 1em 2em 0.5em;
+      text-align: left;
+      height: 100%;
+      color: $dark-blue;
+    }
+
+    .team1-wins {
+      color: white;
+      background-color: $red;
+    }
+
+    .team2 {
+      border-right: 0.5em solid $blue;
+      color: $dark-blue;
+      padding: 2em 1em;
+      text-align: right;
+      height: 100%;
+    }
+
+    .team-halved {
+      background-color: $light-gray;
+    }
+
+    .team2-wins {
+      color: white;
+      background-color: $blue;
+    }
+
+    .team2-wins {
+      color: white;
+      background-color: $blue;
+    }
+
+    .score {
+      color: $light-gray;
+      text-align: center;
+      vertical-align: middle;
+      text-transform: uppercase;
+      height: 100%;
+      display: block;
+      margin: 0;
+      padding: 0;
+      border: 0;
+
+      .match-title {
+        color: $dark-blue;
+        font-family: Merriweather, serif;
+        font-style: italic;
+        font-size: 0.7em;
+        text-transform: none;
+        position: absolute;
+        width: 100%;
+        padding-top: 0.5em;
+      }
+
+      .match-score {
+        padding-top: 0.5em;
+      }
+
+      .score-large {
+        font-size: 4.2em;
+        vertical-align: middle;
+      }
+
+      .score-spacer {
+        font-family: Arial, sans-serif;
+        font-size: 1.6em;
+        font-weight: bold;
+        vertical-align: middle;
+      }
+
+      .score-small {
+        font-size: 1.8em;
+        vertical-align: middle;
+      }
+    }
+
+    .team1-wins-score {
+      color: $red;
+
+      ::after {
+        @include winner-arrow();
+        left: -20px;
+        border-width: 51px 0 49px 20px;
+      }
+    }
+
+    .team2-wins-score {
+      color: $blue;
+
+      ::after {
+        @include winner-arrow();
+        right: -20px;
+        left: auto;
+        border-width: 51px 20px 49px 0;
+      }
+    }
+
+    .first-name {
+      font-family: 'Merriweather', serif;
+      font-size: 0.8rem;
+      font-style: italic;
+      display: block;
+      line-height: 1rem;
+    }
+
+    .last-name {
+      font-family: 'Stratum', sans-serif;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      display: block;
+      line-height: 1.3rem;
+    }
+  }
+}
+
+
+
+
+

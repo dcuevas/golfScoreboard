@@ -1,2 +1,12 @@
 @import 'variables';
 @import '../node_modules/bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Aldrich|Rajdhani:700');
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+@import url('https://fonts.googleapis.com/css?family=Exo+2');
+//@import url('assets/fonts/Stratum2WebBlack.woff2');
+
+@font-face {
+  font-family: 'Stratum';
+  src: url('assets/fonts/Stratum2WebBlack.woff2') format('woff2');
+  font-weight: normal;
+}

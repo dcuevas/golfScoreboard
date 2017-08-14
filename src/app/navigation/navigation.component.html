@@ -3,15 +3,13 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div>
-    <a class="navbar-brand" href="#">
-      <img src="http://i.cdn.rydercup.com/sites/all/themes/custom/rydercup/images/RC_logo@2x.png" height="33" width="32"  class="d-inline-block align-top" alt="">
-    </a>
+  <div class="navbar-brand">
+    <img src="http://i.cdn.rydercup.com/sites/all/themes/custom/rydercup/images/RC_logo@2x.png" height="33" width="32"  class="d-inline-block align-top" alt="">
     <span>{{(user$ | async)?.displayName}}</span>
   </div>
 
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav">
       <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         <a class="nav-link" routerLink="competitions">Competitions <span class="sr-only">(current)</span></a>
       </li>

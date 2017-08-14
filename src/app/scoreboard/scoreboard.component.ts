@@ -14,7 +14,6 @@ export class ScoreboardComponent implements OnInit {
   name: any;
   competition$: FirebaseListObservable<any[]>;
 
-
   constructor(private route: ActivatedRoute, private competitionService: CompetitionsService) {
 
   }
