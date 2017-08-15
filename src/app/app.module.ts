@@ -9,6 +9,9 @@ import { CompetitionComponent } from './competition/competition.component';
 import { CompetitionsComponent } from './competitions/competitions.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { ScoreComponent } from './scoreboard/score/score.component';
+import { HolesComponent } from './scoreboard/holes/holes.component';
+import { TotalScoreComponent } from './scoreboard/totalScore/totalScore.component';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from './environments/environment';
@@ -17,7 +20,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AuthService } from './auth/auth.service';
 import { CompetitionsService } from './competitions/competitions.service';
+import { ScoreService} from './scoreboard/score/score.service';
 import { RangePipe } from './shared/range.pipe';
+import { TotalMatchPointsPipe } from './scoreboard/totalScore/totalMatchPointsPipe';
 import { MatchesComponent } from './competition/matches/matches.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -27,10 +32,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CompetitionComponent,
     CompetitionsComponent,
     ScoreboardComponent,
+    ScoreComponent,
+    HolesComponent,
+    TotalScoreComponent,
     NavigationComponent,
     AuthComponent,
     MatchesComponent,
-    RangePipe
+    RangePipe,
+    TotalMatchPointsPipe,
   ],
   imports: [
     NgbModule.forRoot(),
@@ -41,11 +50,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     Routing,
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [
     AuthService,
-    CompetitionsService
+    CompetitionsService,
+    ScoreService,
   ],
 
   bootstrap: [AppComponent]

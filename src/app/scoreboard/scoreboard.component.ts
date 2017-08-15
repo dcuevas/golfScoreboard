@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import 'rxjs/add/operator/map';
-import {CompetitionsService} from "../competitions/competitions.service";
-import {Competition} from "../shared/competition";
-import {FirebaseListObservable} from "angularfire2/database";
+import {CompetitionsService} from '../competitions/competitions.service';
+import {FirebaseObjectObservable} from 'angularfire2/database';
 
 @Component({
   selector: 'app-scoreboard',
@@ -11,8 +10,7 @@ import {FirebaseListObservable} from "angularfire2/database";
   styleUrls: ['./scoreboard.component.scss']
 })
 export class ScoreboardComponent implements OnInit {
-  name: any;
-  competition$: FirebaseListObservable<any[]>;
+  competition$: FirebaseObjectObservable<any>;
 
   constructor(private route: ActivatedRoute, private competitionService: CompetitionsService) {
 
@@ -20,9 +18,7 @@ export class ScoreboardComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe( (params: any) => {
-      console.log(params.name);
-      this.name = params.name;
-      this.competition$ = this.competitionService.getCompetitionsByName(params.name);
+      this.competition$ = this.competitionService.getCompetition(params.name);
     });
   }
 

@@ -28,8 +28,8 @@ export class CompetitionsComponent implements OnInit {
     console.log('delete competition');
   }
 
-  openCompetitionScoreboard(name) {
-    this.router.navigate([`/scoreboard/${name}`]);
+  openCompetitionScoreboard(id) {
+    this.router.navigate([`/scoreboard/${id}`]);
     // this.competitionService.getCompetitionsByName(name);
   }
 

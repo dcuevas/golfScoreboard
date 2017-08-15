@@ -4,11 +4,11 @@ import { Competition } from 'app/shared/competition';
 
 @Injectable()
 export class CompetitionsService {
-  competitions: FirebaseListObservable<Competition[]> = this.db.list('/competitions');
+  competitions: FirebaseListObservable<any[]> = this.db.list('/competitions');
 
   constructor(private db: AngularFireDatabase) {}
 
-  getCompetitions(): FirebaseListObservable<Competition[]> {
+  getCompetitions(): FirebaseListObservable<any[]> {
     return this.competitions;
   }
 
@@ -19,6 +19,10 @@ export class CompetitionsService {
         equalTo: name
       }
     });
+  }
+
+  getCompetition(id) {
+    return this.db.object(`/competitions/${id}`);
   }
 
   saveCompetition(competition: Competition) {

@@ -1,0 +1,13 @@
+<div class="row text-center mt-1">
+  <div class="col-12 competition-name">
+    {{competition?.name}}
+  </div>
+</div>
+<div class="row m-1">
+  <div class="col-6 text-left team1-header">
+    {{competition?.team1 }} - {{competition?.matches | totalMatchPoints: 0}}
+  </div>
+  <div class="col-6 text-right team2-header">
+    {{competition?.team2 }} - {{competition?.matches | totalMatchPoints: 1}}
+  </div>
+</div>

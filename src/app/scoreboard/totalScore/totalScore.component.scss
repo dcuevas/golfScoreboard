@@ -1,0 +1,20 @@
+$red: #d20004;
+$blue: #0132a7;
+
+.team-header {
+  font-size: 1.5em;
+}
+
+.competition-name {
+  font-size: 2em;
+}
+
+.team1-header {
+  @extend .team-header;
+  color: $red;
+}
+
+.team2-header {
+  @extend .team-header;
+  color: $blue;
+}
