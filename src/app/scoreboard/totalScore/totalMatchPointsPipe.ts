@@ -10,16 +10,12 @@ export class TotalMatchPointsPipe implements PipeTransform {
   private getTotalPointsTeam1(matches) {
     if (matches) {
       return this.scoreService.getTotalPoint(matches, Team.team1);
-    } else {
-      return 0;
     }
   }
 
   private getTotalPointsTeam2(matches) {
     if (matches) {
       return this.scoreService.getTotalPoint(matches, Team.team2);
-    } else {
-      return 0;
     }
   }
 

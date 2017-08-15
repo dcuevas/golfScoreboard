@@ -4,10 +4,13 @@
   </div>
 </div>
 <div class="row m-1">
-  <div class="col-6 text-left team1-header">
-    {{competition?.team1 }} - {{competition?.matches | totalMatchPoints: 0}}
+  <div class="col-5 text-center team1-header pl-2">
+    <div class="total-points team1">{{competition?.matches | totalMatchPoints: 0}}</div>
+    <div class="team-name">{{competition?.team1 }}</div>
   </div>
-  <div class="col-6 text-right team2-header">
-    {{competition?.team2 }} - {{competition?.matches | totalMatchPoints: 1}}
+  <div class="col-2 trophy"></div>
+  <div class="col-5 text-center team2-header pr-2">
+    <div class="total-points">{{competition?.matches | totalMatchPoints: 1}}</div>
+    <div class="team-name">{{competition?.team2 }}</div>
   </div>
 </div>
