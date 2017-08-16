@@ -12,6 +12,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { ScoreComponent } from './scoreboard/score/score.component';
 import { HolesComponent } from './scoreboard/holes/holes.component';
 import { TotalScoreComponent } from './scoreboard/totalScore/totalScore.component';
+import { HolesScoreComponent } from './scoreboard/holes/holesScore/holesScore.component';
 import { RouterModule } from '@angular/router';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from './environments/environment';
@@ -35,6 +36,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ScoreComponent,
     HolesComponent,
     TotalScoreComponent,
+    HolesScoreComponent,
     NavigationComponent,
     AuthComponent,
     MatchesComponent,
@@ -57,7 +59,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CompetitionsService,
     ScoreService,
   ],
-
+  entryComponents: [HolesScoreComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

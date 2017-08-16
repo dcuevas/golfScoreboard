@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 import {AuthService} from '../auth/auth.service';
@@ -10,6 +10,7 @@ import {AuthService} from '../auth/auth.service';
 })
 export class NavigationComponent implements OnInit {
   user$: Observable<firebase.User>;
+  isNavbarCollapsed = true;
 
   constructor(private authService: AuthService) { }
 

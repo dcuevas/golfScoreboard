@@ -1,0 +1,47 @@
+$red: #d20004;
+$blue: #0132a7;
+$dark-blue: #2e384e;
+$light-gray: #b8b8b8;
+
+* {
+
+}
+.btn-group {
+  display: block;
+  text-align: center;
+
+  label {
+    font-family: Stratum, sans-serif;
+  }
+
+  .hole.active {
+    border: 0.1em solid $dark-blue;
+  }
+
+  .team1 {
+    color: $red;
+  }
+
+  .team2 {
+    color: $blue;
+  }
+
+  .halved-hole {
+    background-color: $light-gray;
+  }
+
+  .team1-hole {
+    background-color: $red;
+    color: white;
+  }
+
+  .team2-hole {
+    background-color: $blue;
+    color: white;
+  }
+}
+
+label.header {
+  display: block;
+  text-align: center;
+}

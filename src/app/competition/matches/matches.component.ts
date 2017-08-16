@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import * as _ from 'lodash';
 import {Match, Score} from '../../shared/match';
 import {CompetitionsService} from '../../competitions/competitions.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-matches',

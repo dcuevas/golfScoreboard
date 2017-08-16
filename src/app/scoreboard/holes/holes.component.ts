@@ -1,20 +1,29 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnChanges, SimpleChanges, ViewEncapsulation} from '@angular/core';
 import {Score} from '../../shared/match';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {HolesScoreComponent} from './holesScore/holesScore.component';
 
 @Component({
   selector: 'app-holes',
   templateUrl: './holes.component.html',
-  styleUrls: ['./holes.component.scss']
+  styleUrls: ['./holes.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class HolesComponent {
   @Input() team1Score: Score[];
   @Input() team2Score: Score[];
+  @Input() matchNumber: number;
   private TEAM1_COLOR = '#d20004';
   private TEAM2_COLOR = '#0132a7';
   private HALVED_COLOR = '#b8b8b8';
 
-  addScore() {
+  constructor(private modalService: NgbModal) {}
 
+  addScore() {
+    const modalRef = this.modalService.open(HolesScoreComponent);
+    modalRef.componentInstance.team1Score = this.team1Score;
+    modalRef.componentInstance.team2Score = this.team2Score;
+    modalRef.componentInstance.matchNumber = this.matchNumber;
   }
 
   getHoleColor(index) {

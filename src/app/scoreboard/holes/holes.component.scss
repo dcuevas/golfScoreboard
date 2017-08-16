@@ -11,8 +11,11 @@ $light-gray: #b8b8b8;
   width: 100%;
 
   i {
-    font-size: 0.92rem;
-    padding: 0 0.03em;
+    font-size: 0.9rem;
+    padding: 0 0.01em;
   }
 }
 
+.modal-content {
+  transform: translate(0, 10%);
+}

@@ -28,6 +28,15 @@ export class CompetitionsService {
   saveCompetition(competition: Competition) {
     return this.competitions.push(competition);
   }
+
+  saveScores(competitionId, matchNumber, score1, score2) {
+    const competition = this.getCompetition(competitionId);
+    competition.subscribe(value => {
+      value.matches[matchNumber].score1 = score1;
+      value.matches[matchNumber].score2 = score2;
+      competition.set(value);
+    });
+  }
 }
 
 
