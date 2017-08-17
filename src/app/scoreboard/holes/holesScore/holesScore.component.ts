@@ -4,7 +4,6 @@ import {Score} from '../../../shared/match';
 import {Team} from '../../../shared/team';
 import * as _ from 'lodash';
 import {CompetitionsService} from '../../../competitions/competitions.service';
-import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-holes-score',
@@ -16,26 +15,18 @@ export class HolesScoreComponent implements OnInit {
   @Input() team1Score: Score[];
   @Input() team2Score: Score[];
   @Input() matchNumber: number;
+  @Input() competitionId: any;
   team1ScoreDirty: Score[];
   team2ScoreDirty: Score[];
   holeSelected;
   result;
-  competitionId;
 
-  constructor(public activeModal: NgbActiveModal, private competitionService: CompetitionsService, private route: ActivatedRoute) {
-
-  }
+  constructor(public activeModal: NgbActiveModal, private competitionService: CompetitionsService) {}
 
   ngOnInit(): void {
     this.team1ScoreDirty = _.cloneDeep(this.team1Score);
     this.team2ScoreDirty = _.cloneDeep(this.team2Score);
-
-    this.route.root.params.subscribe( (params: any) => {
-      this.competitionId = params.name;
-      console.log('Competition settled ', params);
-    });
   }
-
 
   updateResult() {
     this.result = this.selectedHoleResult();
@@ -43,14 +34,11 @@ export class HolesScoreComponent implements OnInit {
 
   updateMatch() {
     if (this.result === Team.team1) {
-      console.log('Gana red', this.result, this.holeSelected);
       this.setHolePoints(1, 0);
     } else if (this.result === Team.team2) {
-      console.log('Gana blue', this.result, this.holeSelected);
       this.setHolePoints(0, 1);
     } else {
       this.setHolePoints(0.5, 0.5);
-      console.log('Halved', this.result, this.holeSelected);
     }
 
     this.setHolePlayed(this.holeSelected - 1);
@@ -73,7 +61,7 @@ export class HolesScoreComponent implements OnInit {
   }
 
   saveResults() {
-    this.competitionService.saveScores('-Kk6rPWtX0UzHtlRTQzf', this.matchNumber, this.team1ScoreDirty, this.team2ScoreDirty);
+    this.competitionService.saveScores(this.competitionId, this.matchNumber, this.team1ScoreDirty, this.team2ScoreDirty);
     this.activeModal.close();
   }
 

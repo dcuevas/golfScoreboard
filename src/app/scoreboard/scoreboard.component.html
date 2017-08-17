@@ -5,5 +5,5 @@
 
   <app-total-score [competition]="competition$ | async"></app-total-score>
 
-  <app-score *ngFor="let match of (competition$ | async)?.matches; let i = index" [match]="match" [number]="i"></app-score>
+  <app-score *ngFor="let match of (competition$ | async)?.matches; let i = index" [match]="match" [number]="i" [competitionId]="competitionId"></app-score>
 </div>

@@ -13,6 +13,7 @@ export class HolesComponent {
   @Input() team1Score: Score[];
   @Input() team2Score: Score[];
   @Input() matchNumber: number;
+  @Input() competitionId: any;
   private TEAM1_COLOR = '#d20004';
   private TEAM2_COLOR = '#0132a7';
   private HALVED_COLOR = '#b8b8b8';
@@ -24,6 +25,7 @@ export class HolesComponent {
     modalRef.componentInstance.team1Score = this.team1Score;
     modalRef.componentInstance.team2Score = this.team2Score;
     modalRef.componentInstance.matchNumber = this.matchNumber;
+    modalRef.componentInstance.competitionId = this.competitionId;
   }
 
   getHoleColor(index) {

@@ -11,6 +11,7 @@ import {ScoreService} from './score.service';
 export class ScoreComponent {
   @Input() match: Match;
   @Input() number: number;
+  @Input() competitionId: any;
 
   constructor(private scoreService: ScoreService) {}
 

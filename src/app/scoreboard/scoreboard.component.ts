@@ -11,6 +11,7 @@ import {FirebaseObjectObservable} from 'angularfire2/database';
 })
 export class ScoreboardComponent implements OnInit {
   competition$: FirebaseObjectObservable<any>;
+  competitionId;
 
   constructor(private route: ActivatedRoute, private competitionService: CompetitionsService) {
 
@@ -18,7 +19,8 @@ export class ScoreboardComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe( (params: any) => {
-      this.competition$ = this.competitionService.getCompetition(params.name);
+      this.competitionId = params.name;
+      this.competition$ = this.competitionService.getCompetition(this.competitionId);
     });
   }
 
