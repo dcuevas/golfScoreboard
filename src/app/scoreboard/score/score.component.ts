@@ -16,23 +16,15 @@ export class ScoreComponent {
   constructor(private scoreService: ScoreService) {}
 
   isMatchHalved() {
-    if (this.match) {
-      return this.scoreService.getMatchPoints(this.match, Team.team1) === this.scoreService.getMatchPoints(this.match, Team.team2);
-    } else {
-      return true;
-    }
+    return this.scoreService.isMatchHalved(this.match);
   }
 
   isTeam1Winning() {
-    if (this.match) {
-      return this.scoreService.getMatchPoints(this.match, Team.team1) > this.scoreService.getMatchPoints(this.match, Team.team2);
-    } else {
-      return false;
-    }
+    return this.scoreService.isTeam1Winning(this.match);
   }
 
   isTeam2Winning() {
-    return (!this.isMatchHalved() && !this.isTeam1Winning());
+    return this.scoreService.isTeam2Winning(this.match);
   }
 
   totalPoints() {
