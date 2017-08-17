@@ -18,7 +18,7 @@ export class HolesScoreComponent implements OnInit {
   @Input() matchNumber: number;
   team1ScoreDirty: Score[];
   team2ScoreDirty: Score[];
-  holeSelected = 1;
+  holeSelected;
   result;
   competitionId;
 
@@ -29,7 +29,6 @@ export class HolesScoreComponent implements OnInit {
   ngOnInit(): void {
     this.team1ScoreDirty = _.cloneDeep(this.team1Score);
     this.team2ScoreDirty = _.cloneDeep(this.team2Score);
-    this.result = this.selectedHoleResult();
 
     this.route.root.params.subscribe( (params: any) => {
       this.competitionId = params.name;

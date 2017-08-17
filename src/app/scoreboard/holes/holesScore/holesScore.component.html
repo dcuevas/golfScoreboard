@@ -1,28 +1,28 @@
 <div class="modal-header">
-  <h4 class="modal-title">Select result</h4>
+  <h5 class="modal-title">Select result</h5>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span>&times;</span>
   </button>
 </div>
 <div class="modal-body">
   <label class="header">Holes</label>
-  <div class="btn-group" ngbRadioGroup name="hole" [(ngModel)]="holeSelected" (ngModelChange)="updateResult($event)">
-    <label ngbButtonLabel *ngFor="let score of team1ScoreDirty; let i = index" class="btn-secondary hole"
+  <div class="btn-group btn-group-lg" ngbRadioGroup name="hole" [(ngModel)]="holeSelected" (ngModelChange)="updateResult($event)">
+    <label ngbButtonLabel *ngFor="let score of team1ScoreDirty; let i = index" class="btn-outline-secondary hole"
            [class.halved-hole]="getHoleResult(i) === 2" [class.team1-hole]="getHoleResult(i) === 0" [class.team2-hole]="getHoleResult(i) === 1">
       <input ngbButton type="radio" [value]="i+1"> {{i+1}}
     </label>
   </div>
   <hr>
   <label class="header">Hole <b>{{holeSelected}}</b> score</label>
-  <div class="btn-group" ngbRadioGroup name="result" [(ngModel)]="result" (ngModelChange)="updateMatch($event)">
-    <label ngbButtonLabel class="btn-secondary team1">
-      <input ngbButton type="radio" [value]="0"> Team A
+  <div class="btn-group btn-group-lg" ngbRadioGroup name="result" [(ngModel)]="result" (ngModelChange)="updateMatch($event)">
+    <label ngbButtonLabel class="btn-outline-secondary team1">
+      <input ngbButton type="radio" [value]="0"> Red
     </label>
-    <label ngbButtonLabel class="btn-secondary halved">
+    <label ngbButtonLabel class="btn-outline-secondary halved">
       <input ngbButton type="radio" [value]="2"> Halved
     </label>
-    <label ngbButtonLabel class="btn-secondary team2">
-      <input ngbButton type="radio" [value]="1"> Team B
+    <label ngbButtonLabel class="btn-outline-secondary team2">
+      <input ngbButton type="radio" [value]="1"> Blue
     </label>
   </div>
 </div>
