@@ -6,7 +6,7 @@
 </div>
 <div class="modal-body">
   <label class="header">Holes</label>
-  <div class="btn-group btn-group-lg" ngbRadioGroup name="hole" [(ngModel)]="holeSelected" (ngModelChange)="updateResult($event)">
+  <div class="btn-group btn-group-lg" ngbRadioGroup name="hole" [(ngModel)]="holeSelected" (ngModelChange)="updateResult()">
     <label ngbButtonLabel *ngFor="let score of team1ScoreDirty; let i = index" class="btn-outline-secondary hole"
            [class.halved-hole]="getHoleResult(i) === 2" [class.team1-hole]="getHoleResult(i) === 0" [class.team2-hole]="getHoleResult(i) === 1">
       <input ngbButton type="radio" [value]="i+1"> {{i+1}}
@@ -14,7 +14,7 @@
   </div>
   <hr>
   <label class="header">Hole <b>{{holeSelected}}</b> score</label>
-  <div class="btn-group btn-group-lg" ngbRadioGroup name="result" [(ngModel)]="result" (ngModelChange)="updateMatch($event)">
+  <div class="btn-group btn-group-lg" ngbRadioGroup name="result" [(ngModel)]="result" (ngModelChange)="updateMatch()">
     <label ngbButtonLabel class="btn-outline-secondary team1">
       <input ngbButton type="radio" [value]="0"> Red
     </label>

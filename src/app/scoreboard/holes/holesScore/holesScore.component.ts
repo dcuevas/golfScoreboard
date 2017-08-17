@@ -39,7 +39,6 @@ export class HolesScoreComponent implements OnInit {
 
   updateResult() {
     this.result = this.selectedHoleResult();
-    console.log(this.holeSelected);
   }
 
   updateMatch() {
