@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import * as _ from 'lodash';
 import {Match, Score} from '../../shared/match';
 import {CompetitionsService} from '../../competitions/competitions.service';
@@ -9,20 +9,13 @@ import {Router} from '@angular/router';
   templateUrl: './matches.component.html',
   styleUrls: ['./matches.component.scss']
 })
-export class MatchesComponent implements OnInit {
+export class MatchesComponent {
   @Input() numberOfMatches;
   @Input() competitionInfo;
 
-  constructor(private competitionService: CompetitionsService, private router: Router) {
-
-  }
-
-  ngOnInit() {
-
-  }
+  constructor(private competitionService: CompetitionsService, private router: Router) {}
 
   onSubmit(formValue) {
-    console.log(formValue);
     const newCompetition = this.buildCompetition(formValue);
 
     this.competitionService.saveCompetition(newCompetition).then((savedCompetition) => this.router.navigate(['/competitions']));

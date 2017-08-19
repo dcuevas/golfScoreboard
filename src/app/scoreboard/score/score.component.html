@@ -6,11 +6,21 @@
     </div>
   </div>
   <div class="col-4 score" [class.team1-wins-score]="isTeam1Winning()" [class.team2-wins-score]="isTeam2Winning()" [class.score-halved]="isMatchHalved()">
-    <div class="match-title">Match {{number+1}}</div>
+    <div class="match-title">Match {{number+1}}{{isMatchFinished() ? ' - Final': ''}}</div>
     <div class="match-score">
-      <span class="score-large">{{isMatchHalved() ? '' : totalPoints()}}</span>
-      <span class="score-spacer"></span>
-      <span class="score-small">{{isMatchHalved() ? 'HALVED' : 'Up'}}</span>
+      <ng-container *ngIf="isMatchFinished(); else currenScoreTemplate">
+        <span class="score-large">{{isMatchHalved() ? '' : totalPoints()}}</span>
+        <span class="score-spacer">{{holesPendingToBePlayed() > 0 && holesPendingToBePlayed() < totalPoints() ? '&' : ''}}</span>
+        <ng-container [ngSwitch]="isMatchHalved()">
+          <span class="score-small" *ngSwitchCase="true">HALVED</span>
+          <span class="score-small" *ngSwitchCase="false">{{holesPendingToBePlayed() == 0 ? 'UP' : holesPendingToBePlayed()}}</span>
+        </ng-container>
+      </ng-container>
+      <ng-template #currenScoreTemplate>
+        <span class="score-large">{{isMatchHalved() ? '' : totalPoints()}}</span>
+        <span class="score-spacer"></span>
+        <span class="score-small">{{isMatchHalved() ? 'HALVED' : 'Up'}}</span>
+      </ng-template>
     </div>
   </div>
   <div class="col-4 team2" [class.team2-wins]="isTeam2Winning()" [class.team-halved]="isMatchHalved()">

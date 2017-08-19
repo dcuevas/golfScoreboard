@@ -27,11 +27,19 @@ export class ScoreComponent {
     return this.scoreService.isTeam2Winning(this.match);
   }
 
+  isMatchFinished() {
+    return this.scoreService.isMatchFinished(this.match);
+  }
+
   totalPoints() {
     if (this.match) {
       return Math.abs(this.scoreService.getMatchPoints(this.match, Team.team1) - this.scoreService.getMatchPoints(this.match, Team.team2));
     } else {
       return 0;
     }
+  }
+
+  holesPendingToBePlayed() {
+    return this.scoreService.holesPendingToBePlayed(this.match);
   }
 }

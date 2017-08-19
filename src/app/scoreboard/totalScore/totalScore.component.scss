@@ -1,5 +1,6 @@
 $red: #d20004;
 $blue: #0132a7;
+
 .row {
   margin-right: 0;
   margin-left: 0;
@@ -43,11 +44,23 @@ $blue: #0132a7;
   color: white;
   padding-top: 0.05em;
 
+
+  .decimal {
+    font-family: sans-serif;
+    font-size: 0.8em;
+    vertical-align: text-top;
+    margin-left: 0.1em;
+  }
+
+  .only-decimal {
+    font-size: 1em;
+    vertical-align: inherit;
+    margin-left: 0;
+  }
 }
 
 .trophy {
-  background-image: url('../../../assets/trophy.png');
-  background-repeat: no-repeat;
-  background-position: 52%;
+  background: url('../../../assets/trophy.png') no-repeat 52%;
   background-size: 50px 95px;
 }
+

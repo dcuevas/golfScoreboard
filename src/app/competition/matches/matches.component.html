@@ -1,7 +1,7 @@
 <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
   <ng-container *ngFor="let matchNumber of numberOfMatches | range" [ngModelGroup]="'match'+matchNumber">
     <h4 class="text-center">Match {{matchNumber}}</h4>
-    <h5 class="mt-3 mb-3">Team {{competitionInfo.team1}}</h5>
+    <h5 class="mt-3 mb-3">Team {{competitionInfo?.team1}}</h5>
     <ng-container ngModelGroup="team1">
       <div class="form-group row">
         <label for="t1-player1" class="col-3 col-form-label">Player 1</label>
@@ -13,7 +13,7 @@
       </div>
     </ng-container>
 
-    <h5 class="mt-3 mb-3">Team {{competitionInfo.team2}}</h5>
+    <h5 class="mt-3 mb-3">Team {{competitionInfo?.team2}}</h5>
     <ng-container ngModelGroup="team2">
       <div class="form-group row">
         <label for="t2-player1" class="col-3 col-form-label">Player 1</label>

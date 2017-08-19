@@ -47,6 +47,24 @@ export class ScoreService {
   }
 
   isMatchFinished(match: Match) {
-    return match.score1.every(score => score.played);
+    let isFinished = false;
+
+    if (match.score1.every(score => score.played)) {
+      isFinished = true;
+    } else if (this.isMatchResultHigherThanHolesRemaining(match)) {
+      isFinished = true;
+    }
+
+    return isFinished;
+  }
+
+
+  private isMatchResultHigherThanHolesRemaining(match: Match) {
+    return Math.abs(this.getMatchPoints(match, Team.team1) - this.getMatchPoints(match, Team.team2)) >
+      this.holesPendingToBePlayed(match);
+  }
+
+  holesPendingToBePlayed(match: Match) {
+    return match.score1.filter((hole) => !hole.played).length;
   }
 }

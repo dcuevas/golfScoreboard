@@ -6,11 +6,11 @@
 <div class="row mr-1 ml-1 mt-1 mb-3">
   <div class="col-5 text-center team1-header pl-2">
     <div class="team-name">{{competition?.team1 }}</div>
-    <div class="total-points team1">{{competition?.matches | totalMatchPoints: 0}}</div>
+    <div class="total-points" [innerHTML]="competition?.matches | totalMatchPoints: 0"></div>
   </div>
   <div class="col-2 trophy"></div>
   <div class="col-5 text-center team2-header pr-2">
     <div class="team-name">{{competition?.team2 }}</div>
-    <div class="total-points">{{competition?.matches | totalMatchPoints: 1}}</div>
+    <div class="total-points" [innerHTML]="competition?.matches | totalMatchPoints: 1"></div>
   </div>
 </div>
