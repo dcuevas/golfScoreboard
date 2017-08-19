@@ -78,7 +78,8 @@ $light-gray: #b8b8b8;
     }
 
     .match-score {
-      padding-top: 0.5em;
+      padding-top: 0.4em;
+      margin-bottom: -1.6em;
     }
 
     .score-large {
@@ -102,7 +103,7 @@ $light-gray: #b8b8b8;
   .team1-wins-score {
     color: $red;
 
-    ::after {
+    div:first-child::after {
       @extend .winner-arrow;
       left: -20px;
       border-width: 51px 0 49px 20px;
@@ -112,7 +113,7 @@ $light-gray: #b8b8b8;
   .team2-wins-score {
     color: $blue;
 
-    ::after {
+    div:first-child::after {
       @extend .winner-arrow;
       right: -20px;
       left: auto;

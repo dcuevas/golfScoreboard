@@ -2,6 +2,7 @@ import {Component, Input, OnChanges, SimpleChanges, ViewEncapsulation} from '@an
 import {Score} from '../../shared/match';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {HolesScoreComponent} from './holesScore/holesScore.component';
+import {ScoreService} from '../score/score.service';
 
 @Component({
   selector: 'app-holes',
@@ -18,7 +19,7 @@ export class HolesComponent {
   private TEAM2_COLOR = '#0132a7';
   private HALVED_COLOR = '#b8b8b8';
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal, private scoreService: ScoreService) {}
 
   addScore() {
     const modalRef = this.modalService.open(HolesScoreComponent);
@@ -39,8 +40,18 @@ export class HolesComponent {
   }
 
   alreadyPlayed(index) {
-    if (!this.team1Score[index].played) {
+    if (this.team1Score[index].played) {
       return true;
+    } else {
+      return false;
+    }
+  }
+
+  isMatchFinished() {
+    const match = { score1: this.team1Score, score2: this.team2Score, players1: null, players2: null };
+
+    if (this.team1Score) {
+      return this.scoreService.isMatchFinished(match);
     } else {
       return false;
     }

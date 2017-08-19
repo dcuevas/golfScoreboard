@@ -10,6 +10,10 @@ $light-gray: #b8b8b8;
   margin-left: 0;
   width: 100%;
 
+  div {
+    z-index: 15;
+  }
+
   i {
     font-size: 0.9rem;
     padding: 0 0.01em;

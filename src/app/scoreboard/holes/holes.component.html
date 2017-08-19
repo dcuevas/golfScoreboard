@@ -1,8 +1,9 @@
 <div class="row align-items-center holes text-center pt-2 pb-2">
   <div class="col-12 p-2">
     <span *ngFor="let score of team1Score; let i = index">
-      <i *ngIf="alreadyPlayed(i)" class="fa fa-circle-o" [style.color]="getHoleColor(i)"></i>
-      <i *ngIf="!alreadyPlayed(i)" class="fa fa-circle" [style.color]="getHoleColor(i)"></i>
+      <i *ngIf="alreadyPlayed(i)" class="fa fa-circle" [style.color]="getHoleColor(i)"></i>
+      <i *ngIf="!alreadyPlayed(i) && !isMatchFinished()" class="fa fa-circle-o" [style.color]="getHoleColor(i)"></i>
+      <i *ngIf="!alreadyPlayed(i) && isMatchFinished()" class="fa fa-times-circle" [style.color]="getHoleColor(i)"></i>
     </span>
   </div>
   <div class="col-12 text-center p-1">

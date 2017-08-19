@@ -42,4 +42,8 @@ export class ScoreComponent {
   holesPendingToBePlayed() {
     return this.scoreService.holesPendingToBePlayed(this.match);
   }
+
+  lastHolePlayed() {
+    return this.scoreService.lastHolePlayed(this.match);
+  }
 }

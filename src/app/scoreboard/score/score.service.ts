@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Match } from '../../shared/match';
+import {Match, Score} from '../../shared/match';
 import { Team } from '../../shared/team';
 
 @Injectable()
@@ -58,13 +58,16 @@ export class ScoreService {
     return isFinished;
   }
 
+  holesPendingToBePlayed(match: Match) {
+    return match.score1.filter((hole) => !hole.played).length;
+  }
+
+  lastHolePlayed(match: Match) {
+    return match.score1.findIndex((score) => !score.played);
+  }
 
   private isMatchResultHigherThanHolesRemaining(match: Match) {
     return Math.abs(this.getMatchPoints(match, Team.team1) - this.getMatchPoints(match, Team.team2)) >
       this.holesPendingToBePlayed(match);
-  }
-
-  holesPendingToBePlayed(match: Match) {
-    return match.score1.filter((hole) => !hole.played).length;
   }
 }

@@ -54,7 +54,21 @@ describe('ScoreService', () => {
 
       expect(service.isMatchFinished(match)).toBeTruthy();
     });
+  });
 
+  describe('lastHolePlayed', () => {
+    it('should return 0 when no hole have been played', () => {
+      expect(service.lastHolePlayed(match)).toBe(0);
+    });
+
+    it('should return the last hole played', () => {
+      match.score1[0].played = true;
+      match.score1[0].points = 1;
+      match.score1[1].played = true;
+      match.score1[1].points = 1;
+
+      expect(service.lastHolePlayed(match)).toBe(2);
+    });
   });
 
 });

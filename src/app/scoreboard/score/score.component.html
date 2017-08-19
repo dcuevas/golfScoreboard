@@ -22,6 +22,7 @@
         <span class="score-small">{{isMatchHalved() ? 'HALVED' : 'Up'}}</span>
       </ng-template>
     </div>
+    <div class="match-title" *ngIf="!isMatchFinished() && lastHolePlayed()>0">Thru {{lastHolePlayed()}}</div>
   </div>
   <div class="col-4 team2" [class.team2-wins]="isTeam2Winning()" [class.team-halved]="isMatchHalved()">
     <div class="mb-3" *ngFor="let player of match.players2">
