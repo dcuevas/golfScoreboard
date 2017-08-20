@@ -1,11 +1,10 @@
 <div class="modal-header">
-  <h5 class="modal-title">Select result</h5>
+  <h5 class="modal-title">Select results</h5>
   <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
     <span>&times;</span>
   </button>
 </div>
 <div class="modal-body">
-  <label class="header">Holes</label>
   <div class="btn-group btn-group-lg" ngbRadioGroup name="hole" [(ngModel)]="holeSelected" (ngModelChange)="updateResult()">
     <label ngbButtonLabel *ngFor="let score of team1ScoreDirty; let i = index" class="btn-outline-secondary hole"
            [class.halved-hole]="getHoleResult(i) === 2" [class.team1-hole]="getHoleResult(i) === 0" [class.team2-hole]="getHoleResult(i) === 1">
@@ -13,21 +12,24 @@
     </label>
   </div>
   <hr>
-  <label class="header">Hole <b>{{holeSelected}}</b> score</label>
+  <label class="header">Hole <b>{{holeSelected}}</b></label>
   <div class="btn-group btn-group-lg" ngbRadioGroup name="result" [(ngModel)]="result" (ngModelChange)="updateMatch()">
     <label ngbButtonLabel class="btn-outline-secondary team1">
-      <input ngbButton type="radio" [value]="0"> Red
+      <input ngbButton type="radio" [value]="0"> <i class="fa fa-users"></i>
     </label>
     <label ngbButtonLabel class="btn-outline-secondary halved">
-      <input ngbButton type="radio" [value]="2"> Halved
+      <input ngbButton type="radio" [value]="2"> <i class="fa fa-handshake-o"></i>
     </label>
     <label ngbButtonLabel class="btn-outline-secondary team2">
-      <input ngbButton type="radio" [value]="1"> Blue
+      <input ngbButton type="radio" [value]="1"> <i class="fa fa-users"></i>
+    </label>
+    <label ngbButtonLabel class="btn-outline-secondary btn-outline-info">
+      <input ngbButton type="radio" [value]="3"> <i class="fa fa-undo"></i>
     </label>
   </div>
+
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-outline-info" (click)="resultCurrentHole()">Reset Hole</button>
   <button type="button" class="btn btn-secondary" (click)="saveResults()">Save</button>
   <button type="button" class="btn btn-secondary" (click)="activeModal.close('Close click')">Close</button>
 </div>

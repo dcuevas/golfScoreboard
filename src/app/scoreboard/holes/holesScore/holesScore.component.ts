@@ -37,8 +37,10 @@ export class HolesScoreComponent implements OnInit {
       this.setHolePoints(1, 0);
     } else if (this.result === Team.team2) {
       this.setHolePoints(0, 1);
-    } else {
+    } else if (this.result === HolesScoreComponent.halvedOption) {
       this.setHolePoints(0.5, 0.5);
+    } else {
+      this.resultCurrentHole();
     }
 
     this.setHolePlayed(this.holeSelected - 1, true);
@@ -65,7 +67,7 @@ export class HolesScoreComponent implements OnInit {
     this.activeModal.close();
   }
 
-  resultCurrentHole() {
+  private resultCurrentHole() {
     this.setHolePoints(0, 0);
     this.setHolePlayed(this.holeSelected - 1, false);
     this.result = null;
