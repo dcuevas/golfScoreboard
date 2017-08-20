@@ -35,15 +35,16 @@ export class HolesScoreComponent implements OnInit {
   updateMatch() {
     if (this.result === Team.team1) {
       this.setHolePoints(1, 0);
+      this.setHolePlayed(true);
     } else if (this.result === Team.team2) {
       this.setHolePoints(0, 1);
+      this.setHolePlayed(true);
     } else if (this.result === HolesScoreComponent.halvedOption) {
       this.setHolePoints(0.5, 0.5);
+      this.setHolePlayed(true);
     } else {
-      this.resultCurrentHole();
+      this.resetCurrentHole();
     }
-
-    this.setHolePlayed(this.holeSelected - 1, true);
   }
 
   selectedHoleResult() {
@@ -67,9 +68,9 @@ export class HolesScoreComponent implements OnInit {
     this.activeModal.close();
   }
 
-  private resultCurrentHole() {
+  private resetCurrentHole() {
     this.setHolePoints(0, 0);
-    this.setHolePlayed(this.holeSelected - 1, false);
+    this.setHolePlayed(false);
     this.result = null;
   }
 
@@ -78,8 +79,8 @@ export class HolesScoreComponent implements OnInit {
     this.team2ScoreDirty[this.holeSelected - 1].points = team2Points;
   }
 
-  private setHolePlayed(number, played) {
-    this.team1ScoreDirty[number].played = played;
-    this.team2ScoreDirty[number].played = played;
+  private setHolePlayed(played) {
+    this.team1ScoreDirty[this.holeSelected - 1].played = played;
+    this.team2ScoreDirty[this.holeSelected - 1].played = played;
   }
 }
