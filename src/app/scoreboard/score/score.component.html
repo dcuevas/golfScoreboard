@@ -19,7 +19,7 @@
       <ng-template #currenScoreTemplate>
         <span class="score-large">{{isMatchHalved() ? '' : totalPoints()}}</span>
         <span class="score-spacer"></span>
-        <span class="score-small">{{isMatchHalved() ? 'HALVED' : 'Up'}}</span>
+        <span class="score-small">{{isMatchHalved() ? 'AS' : 'Up'}}</span>
       </ng-template>
     </div>
     <div class="match-title" *ngIf="!isMatchFinished() && lastHolePlayed()>0">Thru {{lastHolePlayed()}}</div>
