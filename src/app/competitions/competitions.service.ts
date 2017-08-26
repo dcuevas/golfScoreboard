@@ -38,6 +38,11 @@ export class CompetitionsService {
       competition.update({ matches: value.matches });
     });
   }
+
+  reomveCompetition(competitionId) {
+    const competition = this.getCompetition(competitionId);
+    return competition.remove();
+  }
 }
 
 

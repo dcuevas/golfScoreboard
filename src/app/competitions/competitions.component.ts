@@ -12,9 +12,7 @@ import {Router} from '@angular/router';
 export class CompetitionsComponent implements OnInit {
   competitions$: FirebaseListObservable<any[]>;
 
-  constructor(private competitionService: CompetitionsService, private router: Router) {
-
-  }
+  constructor(private competitionService: CompetitionsService, private router: Router) {}
 
   ngOnInit() {
     this.competitions$ = this.competitionService.getCompetitions();
@@ -24,13 +22,14 @@ export class CompetitionsComponent implements OnInit {
     this.router.navigate(['/competition']);
   }
 
-  deleteCompetition() {
-    console.log('delete competition');
+  deleteCompetition(id, $event) {
+    $event.stopPropagation();
+
+    this.competitionService.reomveCompetition(id);
   }
 
   openCompetitionScoreboard(id) {
     this.router.navigate([`/scoreboard/${id}`]);
-    // this.competitionService.getCompetitionsByName(name);
   }
 
 }

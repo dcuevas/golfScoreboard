@@ -1,27 +1,55 @@
 <form #formRef="ngForm" (ngSubmit)="onSubmit(formRef.value)">
-  <ng-container *ngFor="let matchNumber of numberOfMatches | range" [ngModelGroup]="'match'+matchNumber">
+  <ng-container *ngFor="let matchNumber of numberOfMatches | range" [ngModelGroup]="'match'+matchNumber" class="">
     <h4 class="text-center">Match {{matchNumber}}</h4>
     <h5 class="mt-3 mb-3">Team {{competitionInfo?.team1}}</h5>
     <ng-container ngModelGroup="team1">
-      <div class="form-group row">
-        <label for="t1-player1" class="col-3 col-form-label">Player 1</label>
-        <div class="col-9"><input type="text" class="form-control" placeholder="Player 1 Name" ngModel name="player1" id="t1-player1"></div>
+      <div class="form-group row mb-1 text">
+        <h6 class="col-12">Player 1</h6>
       </div>
       <div class="form-group row">
-        <label for="t1-player2" class="col-3 col-form-label">Player 2</label>
-        <div class="col-9"><input type="text" class="form-control" placeholder="Player 2 Name" ngModel name="player2" id="t1-player2"></div>
+        <label for="t1-player1-name" class="col-3 col-form-label">Name</label>
+        <div class="col-9"><input type="text" class="form-control" placeholder="Name" ngModel name="player1Name" id="t1-player1-name"></div>
+      </div>
+      <div class="form-group row">
+        <label for="t1-player1-surname" class="col-3 col-form-label">Surname</label>
+        <div class="col-9"><input type="text" class="form-control" placeholder="Surname" ngModel name="player1Surname" id="t1-player1-surname"></div>
+      </div>
+      <div class="form-group row mb-1 text">
+        <h6 class="col-12">Player 2</h6>
+      </div>
+      <div class="form-group row">
+        <label for="t1-player2-name" class="col-3 col-form-label">Name</label>
+        <div class="col-9"><input type="text" class="form-control" placeholder="Name" ngModel name="player2Name" id="t1-player2-name"></div>
+      </div>
+      <div class="form-group row">
+        <label for="t1-player2-surname" class="col-3 col-form-label">Surname</label>
+        <div class="col-9"><input type="text" class="form-control" placeholder="Surname" ngModel name="player2Surname" id="t1-player2-surname"></div>
       </div>
     </ng-container>
 
     <h5 class="mt-3 mb-3">Team {{competitionInfo?.team2}}</h5>
     <ng-container ngModelGroup="team2">
-      <div class="form-group row">
-        <label for="t2-player1" class="col-3 col-form-label">Player 1</label>
-        <div class="col-9"><input type="text" class="form-control" placeholder="Player 1 Name" ngModel name="player1" id="t2-player1"></div>
+      <div class="form-group row mb-1 text">
+        <h6 class="col-12">Player 1</h6>
       </div>
       <div class="form-group row">
-        <label for="t2-player2" class="col-3 col-form-label">Player 2</label>
-        <div class="col-9"><input type="text" class="form-control" placeholder="Player 2 Name" ngModel name="player2" id="t2-player2"></div>
+        <label for="t2-player1-name" class="col-3 col-form-label">Name</label>
+        <div class="col-9"><input type="text" class="form-control" placeholder="Name" ngModel name="player1Name" id="t2-player1-name"></div>
+      </div>
+      <div class="form-group row">
+        <label for="t2-player1-surname" class="col-3 col-form-label">Surname</label>
+        <div class="col-9"><input type="text" class="form-control" placeholder="Surname" ngModel name="player1Surname" id="t2-player1-surname"></div>
+      </div>
+      <div class="form-group row mb-1 text">
+        <h6 class="col-12">Player 2</h6>
+      </div>
+      <div class="form-group row">
+        <label for="t2-player2-name" class="col-3 col-form-label">Name</label>
+        <div class="col-9"><input type="text" class="form-control" placeholder="Name" ngModel name="player2Name" id="t2-player2-name"></div>
+      </div>
+      <div class="form-group row">
+        <label for="t2-player2-surname" class="col-3 col-form-label">Surname</label>
+        <div class="col-9"><input type="text" class="form-control" placeholder="Surname" ngModel name="player2Surname" id="t2-player2-surname"></div>
       </div>
     </ng-container>
     <hr/>

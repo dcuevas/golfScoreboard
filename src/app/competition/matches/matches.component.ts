@@ -34,8 +34,10 @@ export class MatchesComponent {
 
     _.forOwn(formValue, (match) => {
       matches.push({
-        players1: [ match.team1.player1,  match.team1.player2 ],
-        players2: [ match.team2.player1,  match.team2.player2 ],
+        players1: [ { name: match.team1.player1Name, surname: match.team1.player1Surname },
+                    { name: match.team1.player2Name, surname: match.team1.player2Surname } ],
+        players2: [ { name: match.team2.player1Name, surname: match.team2.player1Surname },
+                    { name: match.team2.player2Name, surname: match.team2.player2Surname } ],
         score1: this.buildScores(),
         score2: this.buildScores(),
       });
